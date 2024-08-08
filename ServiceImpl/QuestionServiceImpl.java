@@ -26,7 +26,7 @@ import com.Repo.QuestionRepo;
 	        if (question != null) {
 	            question.setQuestionText(questionDetails.getQuestionText());
 	            question.setOptions(questionDetails.getOptions());
-	            question.setCorrectAnswerIndex(questionDetails.getCorrectAnswerIndex());
+	            question.setCorrectAnswer(questionDetails.getCorrectAnswer());
 	            return questionRepo.save(question);
 	        }
 	        return null;

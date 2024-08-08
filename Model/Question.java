@@ -1,22 +1,28 @@
 package com.Model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 import java.util.List;
 
 	@Entity
+	@Table(name="Questions")
 	public class Question {
 	    @Id
+	    @Column(name="QuestionId")
 	    @GeneratedValue(strategy = GenerationType.AUTO)
 	    private int id;
+	    @Column(name="QuestionText")
 	    private String questionText;
 	    @OneToMany
 	    private List<String> options;
-	    private int correctAnswerIndex;
+	    @Column(name="CorrectOption")
+	    private String correctAnswer;
 		public int getId() {
 			return id;
 		}
@@ -35,11 +41,11 @@ import java.util.List;
 		public void setOptions(List<String> options) {
 			this.options = options;
 		}
-		public int getCorrectAnswerIndex() {
-			return correctAnswerIndex;
+		public String getCorrectAnswer() {
+			return correctAnswer;
 		}
-		public void setCorrectAnswerIndex(int correctAnswerIndex) {
-			this.correctAnswerIndex = correctAnswerIndex;
+		public void setCorrectAnswer(String correctAnswer) {
+			this.correctAnswer = correctAnswer;
 		}
 
 	   
